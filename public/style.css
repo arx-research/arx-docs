@@ -1,0 +1,27 @@
+.dark {
+  --gridBlockBg: #0f1f29;
+  --gridBlockBgHover: #1c1d1d;
+}
+
+.light {
+  --gridBlockBg: #f0f7ff;
+  --gridBlockBgHover: #f3f4f6;
+}
+
+@media (min-width: 960px) {
+  .nextra-sidebar-container {
+    width: 20rem !important;
+  }
+}
+
+.arx-logo {
+  opacity: 0;
+  transform: rotate(10deg);
+  transition: 0.4s opacity, 0.4s transform;
+  transform-origin: 0;
+}
+
+.arx-logo.ready {
+  opacity: 1;
+  transform: none;
+}

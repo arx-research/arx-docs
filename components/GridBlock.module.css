@@ -1,0 +1,20 @@
+.gridBlock {
+  background: var(--gridBlockBg);
+  padding: 24px;
+  transition: 0.2s background-color;
+}
+
+.gridBlock:hover {
+  background: var(--gridBlockBgHover);
+}
+
+.heading {
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.text {
+  opacity: 0.55;
+}

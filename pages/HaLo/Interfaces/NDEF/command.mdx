@@ -1,0 +1,19 @@
+---
+sidebar_position: 3
+title: "Command Mode"
+---
+
+# Command Mode
+
+The user is able to execute a command -- such as sign a message using one of the available keys -- through the NDEF layer. 
+
+## Example
+
+1. Prepare NDEF message with one record (`{recordType: "unknown", data: challenge}`);
+2. Write the message to the chip using standard writing method as described in NFC Forum Type 4 Tag specification. Depending on the platform and interface there may be explicit [NDEF write commands available](https://developer.mozilla.org/en-US/docs/Web/API/NDEFReader/write) or you may need to construct the write using lower-level ADPU commands.
+3. Perform NDEF read. The chip will return a single NDEF record containing the URL.
+4. Parse URL’s `cmd` field and verify whether it contains the command input in step #1.
+5. Parse URL’s `res` field to obtain the command execution result.
+6. Verify ECDSA signature.
+
+See the [halo-webnfc-demo](../NDEF/demo) for an example HaLo web app which signs a randomly generated challenge using key slot #1.

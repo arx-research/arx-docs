@@ -5,12 +5,30 @@ slug: /
 
 # Introduction
 
-Arx Research is the manufacturing hub for [KONG Land](https://www.kong.land/) and it creates chips and protocols that trasform physical things into digital assets. Brands and creators can use these chips and protocols to create [eternal physical crypto assets](https://medium.com/kong-land-embassy/eternal-physical-crypto-b487ee8a1553) of any form -- fashion, collectables, art or virtually any item that a chip can be affixed to.
+Arx Research makes secure chips and protocols that trasform physical things into digital assets. Brands and creators can use these chips and protocols to create [eternal physical crypto assets](https://medium.com/kong-land-embassy/eternal-physical-crypto-b487ee8a1553) of any form -- fashion, collectables, art or virtually any item that a chip can be affixed to. It serves as the manufacturing hub for [KONG Land](https://www.kong.land/) through which it supplies chips to many DAOs and web3 projects. 
 
 ### How Arx Chips Work
 
-At the heart of every Arx secure chip is a cryptographic identity that can be used to authenticate the chip on-chain permissionlessly. These include the [SiLo chip](../category/halo) and [HaLo chip](../category/halo) which use ECDSA signatures for authentication as well as to carry out on-chain actions. Both chips original from KONG 
+At the heart of every Arx secure chip is a cryptographic identity that can be used to authenticate the chip on-chain permissionlessly. These include the [SiLo](../category/halo) and [HaLo](../category/halo) which use ECDSA signatures for authentication as well as to carry out on-chain actions.
 
-There are a variety of ways that you can link digital assets -- like ERC-20 tokens and NFTs -- to chips leveraging custom function calls or escrow contracts which release assets upon signing. The [Physically Backed Token](https://www.pbt.io/) or PBT is [a novel non-fungible token](https://eips.ethereum.org/EIPS/eip-5791) that links physical assets immutably on-chain while ensuring that it can only be transferred through chip signatures. PBTs can still be viewed in existing wallets like standard [ERC-721](https://eips.ethereum.org/EIPS/eip-721) NFTs.
+![HaLo and SiLo chips](/images/halo-silo.png)
+
+There are a variety of ways that you can link digital assets -- like ERC-20 tokens and NFTs -- to chips leveraging custom function calls or escrow contracts which release assets upon signing. The [Physically Backed Token](https://github.com/chiru-labs/PBT) or PBT is [a novel non-fungible token](https://eips.ethereum.org/EIPS/eip-5791) that links physical assets immutably on-chain while ensuring that it can only be transferred through chip signatures. PBTs can still be viewed in existing wallets like standard [ERC-721](https://eips.ethereum.org/EIPS/eip-721) NFTs.
 
 See [Highlighted Projects](../projects) for example projects.
+
+### Linking Chips and Assets with ERS
+
+The Ethereum Reality Service or ERS is an open set of protocols designed to resolve chips and smart contracts.
+
+### Getting Started
+
+You can use a HaLo chip in a variety of ways, so it's important to consider how the chip will store or be linked to crypto assets. 
+
+By default, all HaLo chips come with a demonstration minting app which walks the user through the creation of an EIP-712 signature from the chip which could be used at a later point in time to mint an asset on chain. This app directs you to upload content as well as a name and a description for the chip. It's a great way to cryptographically link content to a chip off-chain.
+
+If you have a HaLo chip on hand, you can test [the minting app](https://halo.vrfy.ch/) via a mobile browser like Safari or Chrome: 
+
+![HaLo Minting Page](/images/halo-minting-page.jpeg)
+
+If you wish to link something on-chain to a chip, we recommend starting with a token like the PBT -- an ERC-721 compatible token that is permanently tied to the chip. With the PBT you can link content like images and videos to chips while allowing for the holder of the chip to claim ownership on chain. The PBT demonstrates how the holder of a chip can pass signatures to a contract from the chip in order to carry out actions like claiming ownership.

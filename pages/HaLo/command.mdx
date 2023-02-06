@@ -1,0 +1,40 @@
+---
+sidebar_position: 3
+title: "Command Mode"
+---
+
+# Sending a Command
+
+The user is able to execute a command -- such as sign a message using one of the available keys -- through one of several interfaces including a proprietary browser interface, NDEF and ADPU. 
+
+## Signature Types
+
+By default, HaLos can produce any secp256k1 signature including potentially malleable signatures. HaLo signatures are not implicitly formatted to any Ethereum format, however, you can generate signatures of any desired format such as those required for an Ethereum transaction, EIP-191 and EIP-712. It's important to understand which kind of signature you want to generate as this influences the digest presented to a chip, for instance by including an [EIP-191](https://eips.ethereum.org/EIPS/eip-191) compliant message header or [EIP-712](https://eips.ethereum.org/EIPS/eip-712) schema.
+
+## Browser Example
+
+1. Prepare desired command as a byte array:
+
+```
+const fromHexString = (hexString) =>
+  new Uint8Array(
+    hexString.match(/.{1,2}/g).map((byte) => parseInt(byte, 16))
+  );
+```
+
+2. TODO: Write the message to the chip using the web credential interface.
+3. TODO: Parse the response bytes from the interface.
+4. Verify ECDSA signature.
+
+See the [halo-webnfc-demo](../NDEF/demo) for an example HaLo web app which signs a randomly generated challenge using key slot #1.
+
+## NDEF Example
+
+1. Prepare NDEF message with one record (`{recordType: "unknown", data: challenge}`).
+2. Write the message to the chip using standard writing method as described in NFC Forum Type 4 Tag specification. Depending on the platform and interface there may be explicit [NDEF write commands available](https://developer.mozilla.org/en-US/docs/Web/API/NDEFReader/write) or you may need to construct the write using lower-level ADPU commands.
+3. Perform NDEF read. The chip will return a single NDEF record containing the URL.
+4. Parse URL’s `cmd` field and verify whether it contains the command input in step #1.
+5. Parse URL’s `res` field to obtain the command execution result.
+6. Verify ECDSA signature.
+
+See the [halo-webnfc-demo](../NDEF/demo) for an example HaLo web app which signs a randomly generated challenge using key slot #1.

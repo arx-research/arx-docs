@@ -5,7 +5,9 @@ title: "Browser Apps"
 
 # Browser Apps
 
-Using either an iPhone or Android device with NFC you can interface with a HaLo entirely via a browser. This is supported in Safari, Chrome, Firefox and Opera, however most dapp browsers like MetaMask and Coinbase Wallet do not currently support this interface.
+Using either an iPhone or Android device with NFC you can interface with a HaLo entirely via our proprietary browser API. This is supported in Safari, Chrome, Firefox and Opera, however most dapp browsers like MetaMask and Coinbase Wallet do not currently support this interface.
+
+An alternative interface to our proprietary browser interface is WebNFC. With WebNFC enabled browsers, commands can be written and results read via NDEF formatted messages.
 
 ### Offchain Minting App
 
@@ -14,3 +16,9 @@ The [HaLo offchain minting app](https://halo.vrfy.ch) uses user and chip signatu
 ### Bulk HaLo Scanner
 
 The bulk HaLo scanning app hosted at [bulk.vrfy.ch](https://bulk.vrfy.ch) is a simple webpage which scans HaLo chips and saves them to local storage. It captures public key information about the chip and can subsequently challenge chips to sign a challenge via the `metadata` field. Captured chip information and any associated signatures can be exported from the chip via a download button.
+
+### WebNFC Demo
+
+The [halo-webnfc-demo](https://github.com/kong-org/halo-webnfc-demo) is a demo React web app which demonstrates reading, writing and verifying signatures via NDEF read and write commands. Refer to [Explicit Command Mode](../NDEF/command) and [Record Structure](../NDEF/params) for more information on how to construct commands and parse results.
+
+_Note that WebNFC is only available in [a limited number of browsers](https://developer.mozilla.org/en-US/docs/Web/API/Web_NFC_API) today._

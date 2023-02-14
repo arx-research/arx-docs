@@ -5,13 +5,13 @@ title: "Overview"
 
 # Overview
 
-Initially released in early 2022, HaLo chips ("Hardware Locked Smart Contracts") come in a variety of form factors and offer powerful secp256k1 signing capabilities.
+Released in 2022, HaLo chips ("Hardware Locked Smart Contracts") come in a variety of form factors and offer powerful secp256k1 signing capabilities.
 
 HaLo chips self-generate their own secp256k1 ECDSA keypairs at the point of manufacture. This keypair is designed to be non-extractable for the life of the chip. Anyone with physical possession of a HaLo chip can instruct it to generate signatures which can be used on- and off-chain to authenticate it, transfer assets, whitelist addresses or more.
 
 HaLo's signing capabilities are the same that you would find with a digital wallet like [Rainbow](https://rainbow.me/) or [MetaMask](https://metamask.io/). Signatures can be formatted to conform with different signing standards including [EIP-191](https://eips.ethereum.org/EIPS/eip-191) and [EIP-712](https://eips.ethereum.org/EIPS/eip-712) and can easily be verified via smart contract.
 
-# Interfaces
+## Interfaces
 
 A HaLo can be read over NFC using the NFC Forum Type 4 Tag Standard where it provides information about its associated public keys through a NDEF URI record. NDEF URI content can typically be read by NFC enabled smartphones without the need for a dedicated application simply by tapping the chip. 
 
@@ -22,6 +22,8 @@ HaLos also offer a proprietary browser-based interface based on the credentials 
 ## Usage
 
 On iPhone models including the XS or more recent and NFC-enabled Android smartphones you can hold a HaLo chip to the antenna to read the NDEF URI record. On both iPhones and Androids this will read in a notification inviting the user to load a URL. On older NFC equipped iPhones like the iPhone X or 7 there is an explicit NFC scan action in the Control Center that must first be activated.
+
+TODO: graphic showing background scan notification
 
 You can also use a dedicated NFC tag scanning app like [NXP TagInfo on the App Store](https://apps.apple.com/us/app/nfc-taginfo-by-nxp/id1246143596) or [NXP TagInfo on the Play Store](https://play.google.com/store/apps/details?id=com.nxp.taginfolite&gl=US).
 

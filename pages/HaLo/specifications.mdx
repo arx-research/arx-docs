@@ -3,3 +3,43 @@ sidebar_position: 5
 ---
 
 # Specifications
+
+## Functionality
+
+All HaLo chips include NDEF, ADPU and proprietary browser interfaces. See [Overview](../HaLo/overview) for more detail on these interfaces.
+
+### Version `c2`
+
+- Two general purpose secp256k1 keys generated at the time of manufacture.
+- One general purpose secp256k1 key that can be generated after manufacture.
+
+### Version `c3`
+
+- One general purpose secp256k1 key generated at the time of manufacture.
+- One internal signing secp256k1 key with associated counter, generated at the time of manufacture.
+- One general purpose secp256k1 key that can be generated after manufacture.
+- Two 32-byte latched memory slots writable after manufacture.
+- Manufacturer Certificate
+
+## Tools
+
+There are several open source libraries and apps that can be used to interface with HaLos:
+
+- TODO: link to React app
+- TODO: link to halo-cli
+- TODO: link to library when ready
+
+## Form Factors
+
+TODO: add photos of different form factors
+
+Available in several standard form factors including:
+
+- Round, 27mm diameter tag
+- Rectangular 30x50mmm tag
+- Wrist bracelet tag
+- CR80 card form factors
+
+All form factors are machine washable and driable, however, note that foil or printed features will wear off over time due to abrasion. HaLo chips have an expected longevity of 10+ years depending on the frequency of use. HaLos can be adhered or embedded into most materials except for metal. See [Integration](../HaLo/integration) for more details and examples of embedding techniques.
+
+Custom form factors and printing are available from Arx Research with certain minimum volumes.

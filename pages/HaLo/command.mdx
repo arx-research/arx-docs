@@ -5,11 +5,13 @@ title: "Command Mode"
 
 # Sending a Command
 
-The user is able to execute a command -- such as sign a message using one of the available keys -- through one of several interfaces including a proprietary browser interface, NDEF and ADPU. 
+The user is able to execute a command -- such as sign a message using one of the available keys -- through one of several interfaces including a proprietary browser interface, NDEF and ADPU. The HaLo expects 32 byte digests which have been hashed client side (e.g. using `sha256` or `keccak256`).
 
 ## Signature Types
 
-By default, HaLos can produce any secp256k1 signature including potentially malleable signatures. HaLo signatures are not implicitly formatted to any Ethereum format, however, you can generate signatures of any desired format such as those required for an Ethereum transaction, EIP-191 and EIP-712. It's important to understand which kind of signature you want to generate as this influences the digest presented to a chip, for instance by including an [EIP-191](https://eips.ethereum.org/EIPS/eip-191) compliant message header or [EIP-712](https://eips.ethereum.org/EIPS/eip-712) schema.
+By default, HaLos can produce any secp256k1 signature including potentially malleable signatures. HaLo signatures are not implicitly formatted to any Ethereum format, however, you can generate signatures of any desired format such as those required for an Ethereum transaction, EIP-191 and EIP-712.
+
+It's important to understand which kind of signature you want to generate as this influences the digest presented to a chip, for instance by including an [EIP-191](https://eips.ethereum.org/EIPS/eip-191) compliant message header or [EIP-712](https://eips.ethereum.org/EIPS/eip-712) schema. Once a signature type is chosen, keep in mind that the client must hash the message with a desired hashing scheme as the HaLo does not carry out any hashing.
 
 ## Browser Example
 
@@ -30,7 +32,10 @@ See the [halo-webnfc-demo](../NDEF/demo) for an example HaLo web app which signs
 
 ## NDEF Example
 
-1. Prepare NDEF message with one record (`{recordType: "unknown", data: challenge}`).
+1. Prepare a NDEF message with one record and a desired `$DIGEST` to be signed by the HaLo:
+```
+{recordType: "unknown", data: $DIGEST}
+```
 2. Write the message to the chip using standard writing method as described in NFC Forum Type 4 Tag specification. Depending on the platform and interface there may be explicit [NDEF write commands available](https://developer.mozilla.org/en-US/docs/Web/API/NDEFReader/write) or you may need to construct the write using lower-level ADPU commands.
 3. Perform NDEF read. The chip will return a single NDEF record containing the URL.
 4. Parse URL’s `cmd` field and verify whether it contains the command input in step #1.

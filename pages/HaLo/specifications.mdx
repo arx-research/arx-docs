@@ -4,9 +4,9 @@ import { Callout } from 'nextra-theme-docs'
 
 ## Functionality
 
-HaLo chips include ISO 7816, ISO 14443 interfaces. See [Overview](../HaLo/overview) for more detail on these interfaces. At the core of their functionality, HaLos generate and store secp256k1 keypairs that can be used to sign messages and transactions on- or off-chain. 
+HaLo chips include ISO 7816 and ISO 14443 interfaces. See [Overview](../HaLo/overview) for more detail on these interfaces. 
 
-By design, HaLos do not expose any interface for the extraction, deletion or replacement of these keypairs.
+HaLos generate and store secp256k1 keypairs that can be used to sign messages and transactions on- or off-chain. By design, HaLos do not expose any interface for the extraction, deletion or replacement of these keypairs.
 
 ## Form Factors
 
@@ -25,12 +25,19 @@ Custom form factors and printing are available from Arx Research with minimum or
 
 ## Versions
 
-### Version `c2`
+### `c1`
 
 - Two general purpose secp256k1 keys generated at the time of manufacture.
 - One general purpose secp256k1 key that can be generated after manufacture.
 
-### Version `c3`
+### `c2`
+
+- Two general purpose secp256k1 keys generated at the time of manufacture.
+- One general purpose secp256k1 key that can be generated after manufacture.
+- Two 32-byte latched memory slots writable after manufacture.
+- Manufacturer Certificate
+
+### `c3`
 
 - One general purpose secp256k1 key generated at the time of manufacture.
 - One internal signing secp256k1 key with associated counter, generated at the time of manufacture.

@@ -1,4 +1,5 @@
 import { Callout } from 'nextra-theme-docs'
+import VideoGrid from '../../components/VideoGrid'
 
 # Specifications
 
@@ -12,10 +13,18 @@ HaLos generate and store secp256k1 keypairs that can be used to sign messages an
 
 Available in several standard form factors including:
 
-- Round, 27mm diameter tag [insert photo of round chip]
+{/* - Round, 27mm diameter tag [insert photo of round chip]
 - Rectangular 30x50mmm tag [insert photo of rectangle chip]
 - Wrist bracelet tag [insert photo of wrist bracelet]
-- CR80 card form factors [insert photo of CR80]
+- CR80 card form factors [insert photo of CR80] */}
+
+<VideoGrid videos={[
+    {src: '/videos/chip.mp4', caption: 'Round, 27mm diameter tag'},
+    {src: '/videos/creditcard.mp4', caption: 'Rectangular 30x50mmm tag'},
+    {src: '/videos/hangtag.mp4', caption: 'Wrist bracelet tag '},
+    {src: '/videos/wristband.mp4', caption: 'CR80 card form factors'}
+]}/>
+
 
 [insert download links for PDFs template]
 

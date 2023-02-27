@@ -29,3 +29,8 @@ html.dark {
   opacity: 1;
   transform: none;
 }
+
+video {
+  display: block;
+  max-width: 100%;
+}

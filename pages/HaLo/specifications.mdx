@@ -1,5 +1,5 @@
 import { Callout } from 'nextra-theme-docs'
-import VideoGrid from '../../components/VideoGrid'
+import MediaGrid from '../../components/MediaGrid'
 
 # Specifications
 
@@ -18,11 +18,11 @@ Available in several standard form factors including:
 - Wrist bracelet tag [insert photo of wrist bracelet]
 - CR80 card form factors [insert photo of CR80] */}
 
-<VideoGrid videos={[
-    {src: '/videos/chip.mp4', caption: 'Round, 27mm diameter tag'},
-    {src: '/videos/creditcard.mp4', caption: 'CR80 card form factors'},
-    {src: '/videos/hangtag.mp4', caption: 'Rectangular 30x50mmm tag'},
-    {src: '/videos/wristband.mp4', caption: 'Wrist bracelet tag'}
+<MediaGrid medias={[
+    {video: true, src: '/videos/chip.mp4', caption: 'Round, 27mm diameter tag'},
+    {video: true, src: '/videos/creditcard.mp4', caption: 'CR80 card form factors'},
+    {video: true, src: '/videos/hangtag.mp4', caption: 'Rectangular 30x50mmm tag'},
+    {video: true, src: '/videos/wristband.mp4', caption: 'Wrist bracelet tag'}
 ]}/>
 
 

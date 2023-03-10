@@ -1,5 +1,25 @@
+import { Callout } from 'nextra-theme-docs'
+
 # Native Apps
 
-Leveraging the NFC APIs available in iOS and Android for native applications you can integrate HaLo scanning functionality directly into your custom app. Arx Research doesn't maintain any native applications at this time, however, we do offer an example open source application using React Native.
+Leveraging the NFC APIs available in iOS and Android you can integrate HaLo scanning functionality directly into your custom app.
 
-TODO: link to application repo.
+## iOS
+
+[CoreNFC](https://developer.apple.com/documentation/corenfc) allows you to interact with HaLos either through [NFCNDEFTag](https://developer.apple.com/documentation/corenfc/nfcndeftag) or [NFCISO7816Tag](https://developer.apple.com/documentation/corenfc/nfciso7816tag). Generally the `NFCISO7816Tag` interace will allow for more precise control when communicating with a tag as reading out the full NDEF payload of the HaLo won't be necessary after each interaction. 
+
+You will need to request specific NFC capabilities through the [Near Field Communication Tag Reader Session Formats Entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_developer_nfc_readersession_formats).
+
+## Android
+
+In Android you can use either [NfcA](https://developer.android.com/reference/android/nfc/tech/NfcA) or [Ndef](https://developer.android.com/reference/android/nfc/tech/Ndef) interfaces to interact with HaLos.
+
+You can use the [Android manifest](https://developer.android.com/guide/topics/connectivity/nfc/nfc#manifest) to both request permission for NFC communications as well as indicate that your app requires NFC capabilities in the phone to function.
+
+## React Native
+
+See the [LibHaLo React Native example](https://github.com/arx-research/libhalo/blob/master/docs/mobile-react-native.md).
+
+<Callout type="info">
+Arx Research doesn't maintain any example native applications at this time.
+</Callout>

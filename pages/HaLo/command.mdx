@@ -1,63 +1,66 @@
+import { Callout } from 'nextra-theme-docs'
+
 # Sending a Command
 
-The user is able to execute a command -- such as sign a message using one of the available keys -- through one of several interfaces including a proprietary browser interface, NDEF and ADPU. The HaLo expects 32 byte digests which have been hashed client side (e.g. using `sha256` or `keccak256`).
+The user is able to execute a command -- such as sign a message using one of the available keys -- through one of several interfaces including a proprietary browser interface, NDEF and ADPU. The HaLo expects 32 byte digests which have been hashed client side (e.g. using `sha256` or `keccak256`). We recommend using [LibHaLo](https://github.com/arx-research/libhalo) to interface with HaLos on mobile web, in React Native apps and CLIs.
 
-## Signature Types
+### Signature Types
 
 By default, HaLos can produce any secp256k1 signature including potentially malleable signatures. HaLo signatures are not implicitly formatted to any Ethereum format, however, you can generate signatures of any desired format such as those required for an Ethereum transaction, EIP-191 and EIP-712.
 
 It's important to understand which kind of signature you want to generate as this influences the digest presented to a chip, for instance by including an [EIP-191](https://eips.ethereum.org/EIPS/eip-191) compliant message header or [EIP-712](https://eips.ethereum.org/EIPS/eip-712) schema. Once a signature type is chosen, keep in mind that the client must hash the message with a desired hashing scheme as the HaLo does not carry out any hashing.
 
-## Browser Example
+## Using LibHaLo
 
-1. Prepare desired command as a byte array:
+LibHaLo is a node library designed to abstract away low level interfaces allowing apps to execute commands from a variety of environments. See [the LibHaLo repo](https://github.com/arx-research/libhalo) for more information on how to execute commands against HaLos.
+
+### Mobile Browser Example
+
+Include the libhalo.js on your webpage:
 
 ```javascript
-const fromHexString = (hexString) =>
-  new Uint8Array(
-    hexString.match(/.{1,2}/g).map((byte) => parseInt(byte, 16))
-  );
+<script src="libhalo.js"></script>
 ```
 
-2. TODO: Write the message to the chip using the web credential interface.
+Create a minimal user interface:
 
-```js
-async function sign(reqx) {
-  var req = {
-    publicKey: {
-      allowCredentials: [
-        {
-          id: reqx,
-          transports: ["nfc"],
-          type: "public-key",
-        },
-      ],
-      challenge: new Uint8Array([
-        113, 241, 176, 49, 249, 113, 39, 237, 135, 170, 177, 61, 15, 14,
-        105, 236, 120, 140, 4, 41, 65, 225, 107, 63, 214, 129, 133, 223,
-        169, 200, 21, 88,
-      ]),
-      rpId: "$DOMAIN",
-      timeout: 60000,
-      userVerification: "discouraged",
-    },
-  };
+```javascript
+<div id="statusText">Please click on the button below.</div>
+<button onclick="btnPressed();">Click here</button>
+```
 
-  var xdd = await navigator.credentials.get(req);
-  return xdd.response.signature;
+Call the library inside the button click routine:
+
+```javascript
+async function btnPressed() {
+    let command = {
+        name: "sign",
+        keyNo: 1,
+        digest: "6e76e202b71892e9ee32a634eefcf522ba1c4cb4eadd7e4562ced1270214c41e"
+    };
+    
+    document.getElementById('statusText').innerText = "Please tap NFC tag to the back of your smartphone...";
+
+    try {
+        let res = await execHaloCmdWeb(command);
+        // display operation result
+        document.getElementById('statusText').innerText = JSON.stringify(res, null, 4);
+    } catch (e) {
+        // display error
+        document.getElementById('statusText').innerText = e;
+    }
 }
 ```
 
-3. TODO: Parse the response bytes from the interface.
-4. Verify ECDSA signature.
+Load the webpage through HTTPS on a mobile browser like iOS Safari or Android Chrome and tap `Click here` to initiate a scan. You can use a tool like [localtunnel](https://github.com/localtunnel/localtunnel) to serve a locally hosted page over HTTPS.
 
-See the [halo-webnfc-demo](../NDEF/demo) for an example HaLo web app which signs a randomly generated challenge using key slot #1.
+## Manually Constructing a Command
 
-## NDEF Example
+You can easily craft an NDEF message to send a signing request
 
-1. Prepare a NDEF message with one record and a desired `$DIGEST` to be signed by the HaLo:
+1. Prepare a NDEF message with one record and a desired `$CHALLENGE` to be signed by the HaLo. A `$CHALLENGE` should mirror the [`cmd` param](../HaLo/params#cmd-parameter) but with the desired key slot, command type and digest:
 ```javascript
-{ recordType: "unknown", data: $DIGEST }
+{ recordType: "unknown", data: $CHALLENGE }
 ```
 2. Write the message to the chip using standard writing method as described in NFC Forum Type 4 Tag specification. Depending on the platform and interface there may be explicit [NDEF write commands available](https://developer.mozilla.org/en-US/docs/Web/API/NDEFReader/write) or you may need to construct the write using lower-level ADPU commands.
 3. Perform NDEF read. The chip will return a single NDEF record containing the URL.

@@ -1,4 +1,5 @@
 import { Callout } from 'nextra-theme-docs'
+import MediaGrid from '../../components/MediaGrid'
 
 # Integration
 
@@ -25,11 +26,12 @@ This app is hosted at [bulk.vrfy.ch](https://bulk.vrfy.ch)
 
 For textiles and garments, creators have used a variety of means to embed HaLo chips including:
 
-- Embroidered patches sewn or adhered above chips [insert graphic of IRLart NASTY patch]
-- Silocone patches sewn around chips [insert graphic of MF silicone patch]
-- Under soft tags either at the neck, sleeve or torso of a garment [insert graphic of MF wicked sunday club shirt tag or genesis bomber]
-- Sewn into the corner of an existing pocket [insert graphic of IRLart sewn corner]
-- Stitched between two layers of a garment on a sleeve [insert graphic of Azuki x Ambush sleeve]
+<MediaGrid medias={[
+    {src: '/images/above.jpg', caption: 'Embroidered patches or soft tags sewn or adhered above chips'},
+    {src: '/images/around.jpg', caption: 'Silocone patches sewn around chips'},
+    {src: '/images/corner.jpg', caption: 'Sewn into the corner of an existing pocket'},
+    {src: '/images/two-layers.jpg', caption: 'Stitched between two layers of a garment on a sleeve'}
+]}/>
 
 Other notable integrations have included:
 

@@ -1,0 +1,32 @@
+.string {
+  word-break: break-all;
+  padding: 1rem;
+  background-color: var(--codeBg);
+  border-radius: 0.75rem;
+  margin-top: 24px;
+}
+
+.nowrap {
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.anchor:hover {
+  text-decoration: underline;
+}
+
+.red {
+  color: var(--shiki-token-keyword);
+}
+
+.green {
+  color: var(--shiki-token-string-expression);
+}
+
+.purple {
+  color: var(--shiki-token-function);
+}
+
+.blue {
+  color: var(--shiki-token-constant);
+}

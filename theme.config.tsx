@@ -22,6 +22,11 @@ const config: DocsThemeConfig = {
       <script defer src="/scripts.js"></script>
     </>
   ),
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s – Arx",
+    };
+  },
   // project: {
   //   link: "https://github.com/shuding/nextra-docs-template",
   // },

@@ -1,11 +1,15 @@
-.dark {
-  --gridBlockBg: #0f1f29;
-  --gridBlockBgHover: #1c1d1d;
-}
-
-.light {
+html {
   --gridBlockBg: #f0f7ff;
   --gridBlockBgHover: #f3f4f6;
+  --borderColor: #e5e7eb;
+  --codeBg: hsl(var(--nextra-primary-hue) 100% 39%/0.05);
+}
+
+html.dark {
+  --gridBlockBg: #0f1f29;
+  --gridBlockBgHover: #1c1d1d;
+  --borderColor: hsl(var(--nextra-primary-hue) 100% 94%/0.1);
+  --codeBg: hsl(var(--nextra-primary-hue) 100% 77%/0.1);
 }
 
 @media (min-width: 960px) {
@@ -24,4 +28,9 @@
 .arx-logo.ready {
   opacity: 1;
   transform: none;
+}
+
+video {
+  display: block;
+  max-width: 100%;
 }

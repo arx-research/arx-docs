@@ -20,6 +20,34 @@ const fromHexString = (hexString) =>
 ```
 
 2. TODO: Write the message to the chip using the web credential interface.
+
+```js
+async function sign(reqx) {
+  var req = {
+    publicKey: {
+      allowCredentials: [
+        {
+          id: reqx,
+          transports: ["nfc"],
+          type: "public-key",
+        },
+      ],
+      challenge: new Uint8Array([
+        113, 241, 176, 49, 249, 113, 39, 237, 135, 170, 177, 61, 15, 14,
+        105, 236, 120, 140, 4, 41, 65, 225, 107, 63, 214, 129, 133, 223,
+        169, 200, 21, 88,
+      ]),
+      rpId: "$DOMAIN",
+      timeout: 60000,
+      userVerification: "discouraged",
+    },
+  };
+
+  var xdd = await navigator.credentials.get(req);
+  return xdd.response.signature;
+}
+```
+
 3. TODO: Parse the response bytes from the interface.
 4. Verify ECDSA signature.
 
@@ -37,4 +65,4 @@ See the [halo-webnfc-demo](../NDEF/demo) for an example HaLo web app which signs
 5. Parse URL’s `res` field to obtain the command execution result.
 6. Verify ECDSA signature.
 
-See the [halo-webnfc-demo](../NDEF/demo) for an example HaLo web app which signs a randomly generated challenge using key slot #1.
+See the [halo-webnfc-demo](../Examples/browser-apps#webnfc-demo) for an example HaLo web app which signs a randomly generated challenge using key slot #1.

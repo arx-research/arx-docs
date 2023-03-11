@@ -4,6 +4,10 @@ import { Callout } from 'nextra-theme-docs'
 
 Leveraging the NFC APIs available in iOS and Android you can integrate HaLo scanning functionality directly into your custom app.
 
+<Callout type="info">
+Arx Research doesn't maintain any example native applications at this time.
+</Callout>
+
 ## iOS
 
 [CoreNFC](https://developer.apple.com/documentation/corenfc) allows you to interact with HaLos either through [NFCNDEFTag](https://developer.apple.com/documentation/corenfc/nfcndeftag) or [NFCISO7816Tag](https://developer.apple.com/documentation/corenfc/nfciso7816tag). Generally the `NFCISO7816Tag` interace will allow for more precise control when communicating with a tag as reading out the full NDEF payload of the HaLo won't be necessary after each interaction. 
@@ -19,7 +23,3 @@ You can use the [Android manifest](https://developer.android.com/guide/topics/co
 ## React Native
 
 See the [LibHaLo React Native example](https://github.com/arx-research/libhalo/blob/master/docs/mobile-react-native.md).
-
-<Callout type="info">
-Arx Research doesn't maintain any example native applications at this time.
-</Callout>

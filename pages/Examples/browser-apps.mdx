@@ -4,15 +4,15 @@ Using either an iPhone or Android device with NFC you can interface with a HaLo 
 
 An alternative interface to our proprietary browser interface is WebNFC. With WebNFC enabled browsers, commands can be written and results read via NDEF formatted messages.
 
-### Offchain Minting App
+## Offchain Minting App
 
 The [HaLo offchain minting app](https://halo.vrfy.ch) uses user and chip signatures to associate content -- like images and videos -- with chips. It uses Arweave to retrieve and store chip records and associated content as well as Wallet Connect to request signatures that bind content with the wallet of its creator.
 
-### Bulk HaLo Scanner
+## Bulk HaLo Scanner
 
 The bulk HaLo scanning app hosted at [bulk.vrfy.ch](https://bulk.vrfy.ch) is a simple webpage which scans HaLo chips and saves them to local storage. It captures public key information about the chip and can subsequently challenge chips to sign a challenge via the `metadata` field. Captured chip information and any associated signatures can be exported from the chip via a download button.
 
-### WebNFC Demo
+## WebNFC Demo
 
 The [halo-webnfc-demo](https://github.com/kong-org/halo-webnfc-demo) is a demo React web app which demonstrates reading, writing and verifying signatures via NDEF read and write commands. Refer to [Explicit Command Mode](../NDEF/command) and [Record Structure](../NDEF/params) for more information on how to construct commands and parse results.
 

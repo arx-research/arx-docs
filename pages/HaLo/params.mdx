@@ -1,15 +1,14 @@
 import LongUrl from "../../components/LongUrl";
+import { Callout } from 'nextra-theme-docs'
 import MulticolorString from "../../components/MulticolorString";
 
 # NDEF Record Structure
 
 The HaLo URL NDEF record contains information about the chip's unique public keys as well as information about the last issued command and last returned response for that command. There is a proprietary interface allowing the user to issue arbitrary commands against the chip using the NDEF layer.
 
-_Note on HaLo 2023 Edition:_
-
-Later editions of the chip (2023+, version `c3` and higher) noted with the also contain two one-time writeable 32 byte slots, called `latches`.
-
-In this edition of chips, if no command was explicitly issued by the user since the last scan the tag will automatically generate a random nonce and sign it using the key in slot #2.
+<Callout type="warning">
+Parameters are expected to change in version `c4` and higher.
+</Callout>
 
 ## Example URL
 
@@ -94,9 +93,9 @@ If the size of the element is 65 - the key is a secp256k1 uncompressed public ke
 
 ## `latch` parameters
 
-`Version c3+ Only` The chip contains two 32 byte slots which are one-time writable. Once a non-zero buffer is written to any of the slots, that slot is locked against any further modification. The `latch1` and `latch2` parameters contain hex encoded values of the corresponding latch slots.
+Later editions of the chip (version `c2` and higher) noted with the also contain two one-time writeable 32 byte slots, called `latches`.
 
-_Note future ERS functionality may require use of `latch1`._
+Once a non-zero buffer is written to any of the slots, that slot is locked against any further modification. The `latch1` and `latch2` parameters contain hex encoded values of the corresponding latch slots.
 
 ## `cmd` parameter
 

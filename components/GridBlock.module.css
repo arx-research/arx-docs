@@ -1,11 +1,29 @@
 .gridBlock {
   background: var(--gridBlockBg);
-  padding: 24px;
   transition: 0.2s background-color;
+  border-radius: 8px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  transition: 0.2s transform;
+}
+
+.gridBlock:hover {
+  transform: scale(1.01);
+}
+
+.gridBlockText {
+  padding: 24px;
+  display: block;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .gridBlock:hover {
   background: var(--gridBlockBgHover);
+}
+
+.image {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .heading {

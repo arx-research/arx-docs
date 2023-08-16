@@ -33,7 +33,7 @@ const config: DocsThemeConfig = {
   // chat: {
   //   link: "https://discord.com",
   // },
-  docsRepositoryBase: "https://github.com/arx-research/arx-docs",
+  docsRepositoryBase: "https://github.com/arx-research/arx-docs/tree/main",
   footer: {
     text: "© 2023 Arx.org",
   },

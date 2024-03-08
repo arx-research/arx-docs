@@ -1,5 +1,6 @@
 import { Callout } from 'nextra-theme-docs'
 import MediaGrid from '../../components/MediaGrid'
+import { Tab, Tabs } from 'nextra-theme-docs'
 
 # Specifications
 
@@ -32,29 +33,6 @@ Available in several standard form factors including:
 Custom form factors and printing are available from Arx Research with minimum order volumes. Contact sales@arx.org for more information.
 </Callout>
 
-## Versions
-
-### `c1`
-
-- Two general purpose secp256k1 keys generated at the time of manufacture.
-- One general purpose secp256k1 key that can be generated after manufacture.
-
-### `c2`
-
-- Two general purpose secp256k1 keys generated at the time of manufacture.
-- One general purpose secp256k1 key that can be generated after manufacture.
-- Two 32-byte latched memory slots writable after manufacture.
-- Manufacturer Certificate
-
-### `c3`,`c4`,`c5`
-
-- One general purpose secp256k1 key generated at the time of manufacture.
-- One internal signing secp256k1 key with associated counter, generated at the time of manufacture.
-- One general purpose secp256k1 key that can be generated after manufacture.
-- Two 32-byte latched memory slots writable after manufacture.
-- Manufacturer Certificate
-
-
 ## Application Durability
 
 All form factors are machine washable and driable, however, note that foil or printed features will wear off over time due to abrasion. HaLo chips have an expected longevity of 10+ years depending on the frequency of use.
@@ -66,3 +44,50 @@ HaLos can be adhered to or embedded within most materials except for metal. See 
 ## Tools
 
 The open source [LibHaLo](https://github.com/arx-research/libhalo) library adds HaLo-scanning capabilities to mobile, web and desktop applications. See [Examples](../Examples/browser-apps) for open source apps that can be used as a starting point for HaLo scanning.
+
+## Versions
+
+<Tabs items={['c1', 'c2', 'c3-c5', 'c6-c7', 'c8']} defaultIndex="2">
+  <Tab>
+    ### `c1`
+
+    - Two general purpose secp256k1 keys generated at the time of manufacture.
+    - One general purpose secp256k1 key that can be generated after manufacture.
+  </Tab>
+  <Tab>
+    ### `c2`
+
+    - Two general purpose secp256k1 keys generated at the time of manufacture.
+    - One general purpose secp256k1 key that can be generated after manufacture.
+    - Two 32-byte latched memory slots writable after manufacture.
+    - Manufacturer Certificate
+  </Tab>
+  <Tab>
+    ### `c3`,`c4`,`c5`
+
+    - One general purpose secp256k1 key generated at the time of manufacture.
+    - One internal signing secp256k1 key with associated counter, generated at the time of manufacture.
+    - One general purpose secp256k1 key that can be generated after manufacture.
+    - Two 32-byte latched memory slots writable after manufacture.
+    - Manufacturer Certificate
+  </Tab>
+  <Tab>
+    ### `c6`,`c7`
+
+    - One general purpose secp256k1 key generated at the time of manufacture.
+    - One internal signing secp256k1 key with associated counter, generated at the time of manufacture.
+    - Multiple general purpose secp256k1 keys that can be generated after manufacture, a subset of which can be passcode protected.
+    - Two 32-byte latched memory slots writable after manufacture.
+    - Manufacturer Certificate
+  </Tab>
+  <Tab>
+    ### `c8`
+
+    - One general purpose secp256k1 key generated at the time of manufacture.
+    - One internal signing secp256k1 key with associated counter, generated at the time of manufacture.
+    - Multiple general purpose secp256k1 keys that can be generated after manufacture
+    - Two 32-byte latched memory slots writable after manufacture.
+    - One 32-byte unlatched memory slot (`graffti`) that can be written any time after manufacture.
+    - Manufacturer Certificate
+  </Tab>
+</Tabs>

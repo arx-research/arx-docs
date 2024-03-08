@@ -1,5 +1,7 @@
 {
   "browser-apps": "Browser Apps",
+  "smart-contracts": "Smart Contracts",
+  "gateway": "Gateway",
   "native-apps": "Native Apps",
   "cli": "Command Line Interface"
 }  

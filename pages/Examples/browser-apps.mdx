@@ -1,8 +1,20 @@
+import { Callout } from 'nextra-theme-docs'
+
 # Browser Apps
 
 Using either an iPhone or Android device with NFC you can interface with a HaLo entirely via our proprietary browser API. This is supported in Safari, Chrome, Firefox and Opera, however most dapp browsers like MetaMask and Coinbase Wallet do not currently support this interface.
 
 An alternative interface to our proprietary browser interface is WebNFC. With WebNFC enabled browsers, commands can be written and results read via NDEF formatted messages.
+
+## LibHaLo Demos
+
+The LibHaLo library is a simple JavaScript library that provides a high-level interface to HaLo chips. The [LibHaLo Demos](https://halo-demos.arx.org/examples/) provide a variety of examples of how to use the library to interact with HaLo chips.
+
+Specific demos include:
+
+- A basic [signing demo](https://halo-demos.arx.org/examples/demo.html) that allows you to sign a message with a HaLo chip.
+- A [key generation demo](https://halo-demos.arx.org/examples/gen_key.html) (`c6+`) that demonstrates how to request the generation of a new keypair within the HaLo chip.
+- A [cfg_ndef demo](https://halo-demos.arx.org/examples/cfg_ndef.html) that allows for advanced NDEF configuration such as setting HaLo latches, disabling `rndsig` for better scanning performance and adding additionally generated public keys to the NDEF record.
 
 ## Offchain Minting App
 

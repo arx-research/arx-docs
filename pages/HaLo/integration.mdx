@@ -15,12 +15,22 @@ HaLo chips cannot be embedded under or on metal. This includes foils and metalli
 
 ## Bulk Scanning
 
+### Web App
+
 In order to enroll a large number of HaLos at once, we have created a simple, [open source browser-based scanning app](https://github.com/kong-org/halo-bulk-web) that allows one to quickly capture chip information. 
 
 ![Bulk Scan](/images/bulk-scan.jpg)
 
 This app is hosted at [bulk.vrfy.ch](https://bulk.vrfy.ch)
  and can capture chip information to a browser's local storage which is persistent across page refreshes. Once all the desired chip information has been captured, it can be downloaded to the phone as a JSON-formatted file.
+
+### CLIs
+
+Leveraging [LibHaLo](https://github.com/arx-research/libhalo), bulk scanning can easily be scripted with a hardwired NFC scanner and desktop computer. See the [LibHaLo CLI Documentation](https://github.com/arx-research/libhalo/blob/master/docs/desktop-cli.md) for more information. Most off the shelf NFC readers are compatible with LibHaLo CLI.
+
+### Automated
+
+For high volume production, we can provide custom solutions for automated scanning and [ERS](https://www.ers.to/) enrollment.
 
 ## Textiles
 

@@ -1,0 +1,7 @@
+# HaLo Gateway
+
+The HaLo gateway allows a desktop browser to interact with HaLo chips without the need for a dedicated NFC scanner. It accomplishes this through a secure WebSocket connection between the desktop browser and a scanning webpage on a compatbile smartphone. It's integrated directly with LibHaLo and can also be used in a CLI context -- for example to integrate HaLo chips directly into Hardhat tests.
+
+- [LibHaLo web demo](https://halo-demos.arx.org/examples/gateway_requestor.html) that allows for scanning a HaLo chip from a desktop browser linked to a mobile device.
+- [ers-scripts](https://github.com/arx-research/ers-scripts) which leverages HaLo gateway in a CLI context to collect chip data for enrollment.
+- [kong-rerro interactive tests](https://github.com/kong-org/kong-rerro/blob/main/test/interactive/RerroTokenInteractiveRelay.test.js) that use HaLo gateway within Hardhat tests for a smart contract that parses HaLo signatures in order to mint token.

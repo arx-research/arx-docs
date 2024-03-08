@@ -1,98 +1,261 @@
 import { Callout } from 'nextra-theme-docs'
 import MulticolorString from "../../components/MulticolorString";
+import { Tab, Tabs } from 'nextra-theme-docs'
 
 # Non-Interactive Mode
 
-When no command is written to a chip, it will automatically generate a random challenge and sign it using key slot #2 while incrementing a counter. For chips with this feature you cannot request signatures of external data from key slot #2.
+Starting with version `c3`, when no command is written to a chip, it will automatically generate a random challenge and sign it using key slot #2 while incrementing a counter. For chips with this feature you cannot request signatures of external data from key slot #2.
 
-<Callout type="warning">
-Experimental feature available in version `c3` or greater. Interface is expected to change.
-</Callout>
+<Tabs items={['Versions c3-c4', 'Version c5+']} defaultIndex="2">
+  <Tab>
+    ## Verification Example
 
-## Verification Example
+    Using the URL below, we can verify the randomly generated challenge against the secondary public key of the HaLo:
 
-Using the URL below, we can verify the randomly generated challenge against the secondary public key of the HaLo:
-
-<MulticolorString 
-  noWrap
-  href="https://eth.vrfy.ch/?v=c3&static=41046ACA3F246833017F8932A42518BBC0602E7B41FC4A03F02417B73685FF01AEAB8D653466D6FA2450A085C29BA31169F83A489DE46BC4CB0BB4F567DF7A66BE8E4104BDC6288D344F129820317411D8A8283942DCDB4B2D2F86E78F22F944160B6038C9E8DC747710349C2E55E6BC52D8745B749B39051BF72A0307B339257A48AECF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&latch1=0000000000000000000000000000000000000000000000000000000000000000&latch2=0000000000000000000000000000000000000000000000000000000000000000&cmd=810200000002F202C592C809428C2C763C3AB3A4BBF5475DD4567A45F8200E82C63D00&res=30450221009FB0D4E3F7BF343219E4A8779059412E3E1A2F26EAAE69B6246EA1AD118D3EE40220783DEBF12DF1D60DF6488543C8100937E9A596028B2D97D65279378713157CF10000000000"
-  parts={[
-    {text: "https://eth.vrfy.ch/?", color: "text"},
-    {text: "v", color: "green"},
-    {text: "=", color: "text"},
-    {text: "c3", color: "text"},
-    {text: "&", color: "text"},
-    {text: "static", color: "green"},
-    {text: "=", color: "text"},
-    {text: "41046ACA3F246833017F8932A42518BBC0602E7B41FC4A03F02417B73685FF01AEAB8D653466D6FA2450A085C29BA31169F83A489DE46BC4CB0BB4F567DF7A66BE8E4104BDC6288D344F129820317411D8A8283942DCDB4B2D2F86E78F22F944160B6038C9E8DC747710349C2E55E6BC52D8745B749B39051BF72A0307B339257A48AECF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", color: "text"},
-    {text: "&", color: "text"},
-    {text: "latch1", color: "green"},
-    {text: "=", color: "text"},
-    {text: "0000000000000000000000000000000000000000000000000000000000000000", color: "text"},
-    {text: "&", color: "text"},
-    {text: "latch2", color: "green"},
-    {text: "=", color: "text"},
-    {text: "0000000000000000000000000000000000000000000000000000000000000000", color: "text"},
-    {text: "&", color: "text"},
-    {text: "cmd", color: "green"},
-    {text: "=", color: "text"},
-    {text: "810200000009DC18D3F30E06E9A3C10D41EDDA09404654C502F70E67E80D781876D800", color: "text"},
-    {text: "&", color: "text"},
-    {text: "res", color: "green"},
-    {text: "=", color: "text"},
-    {text: "3045022100FCAAEFFCAB25E4B78BABB68C733DD2827FDC76E927F87C50A392E257583797DD02201A9CA7012FF3CC1C3380E1832BC733C69D743445A8DA4F664095F134927DA9170000000000", color: "text"},
-    {text: "&", color: "text"},
-  ]}
-/>
+    <MulticolorString 
+      noWrap
+      href="https://eth.vrfy.ch/?v=c3&static=41046ACA3F246833017F8932A42518BBC0602E7B41FC4A03F02417B73685FF01AEAB8D653466D6FA2450A085C29BA31169F83A489DE46BC4CB0BB4F567DF7A66BE8E4104BDC6288D344F129820317411D8A8283942DCDB4B2D2F86E78F22F944160B6038C9E8DC747710349C2E55E6BC52D8745B749B39051BF72A0307B339257A48AECF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&latch1=0000000000000000000000000000000000000000000000000000000000000000&latch2=0000000000000000000000000000000000000000000000000000000000000000&cmd=810200000002F202C592C809428C2C763C3AB3A4BBF5475DD4567A45F8200E82C63D00&res=30450221009FB0D4E3F7BF343219E4A8779059412E3E1A2F26EAAE69B6246EA1AD118D3EE40220783DEBF12DF1D60DF6488543C8100937E9A596028B2D97D65279378713157CF10000000000"
+      parts={[
+        {text: "https://eth.vrfy.ch/?", color: "text"},
+        {text: "v", color: "green"},
+        {text: "=", color: "text"},
+        {text: "c3", color: "text"},
+        {text: "&", color: "text"},
+        {text: "static", color: "green"},
+        {text: "=", color: "text"},
+        {text: "41046ACA3F246833017F8932A42518BBC0602E7B41FC4A03F02417B73685FF01AEAB8D653466D6FA2450A085C29BA31169F83A489DE46BC4CB0BB4F567DF7A66BE8E4104BDC6288D344F129820317411D8A8283942DCDB4B2D2F86E78F22F944160B6038C9E8DC747710349C2E55E6BC52D8745B749B39051BF72A0307B339257A48AECF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", color: "text"},
+        {text: "&", color: "text"},
+        {text: "latch1", color: "green"},
+        {text: "=", color: "text"},
+        {text: "0000000000000000000000000000000000000000000000000000000000000000", color: "text"},
+        {text: "&", color: "text"},
+        {text: "latch2", color: "green"},
+        {text: "=", color: "text"},
+        {text: "0000000000000000000000000000000000000000000000000000000000000000", color: "text"},
+        {text: "&", color: "text"},
+        {text: "cmd", color: "green"},
+        {text: "=", color: "text"},
+        {text: "810200000009DC18D3F30E06E9A3C10D41EDDA09404654C502F70E67E80D781876D800", color: "text"},
+        {text: "&", color: "text"},
+        {text: "res", color: "green"},
+        {text: "=", color: "text"},
+        {text: "3045022100FCAAEFFCAB25E4B78BABB68C733DD2827FDC76E927F87C50A392E257583797DD02201A9CA7012FF3CC1C3380E1832BC733C69D743445A8DA4F664095F134927DA9170000000000", color: "text"},
+        {text: "&", color: "text"},
+      ]}
+    />
 
 
 
-1. Scan the HaLo chip and [parse the NDEF record](../HaLo/params). The `static` parameter contains the public key for key slot #2 or `pkey2`.
+    1. Scan the HaLo chip and [parse the NDEF record](../HaLo/params). The `static` parameter contains the public key for key slot #2 or `pkey2`.
 
-**`static`**
+    **`static`**
 
-```
-41 04BDC6288D344F129820317411D8A8283942DCDB4B2D2F86E78F22F944160B6038C9E8DC747710349C2E55E6BC52D8745B749B39051BF72A0307B339257A48AECF
-```
+    ```
+    41 04BDC6288D344F129820317411D8A8283942DCDB4B2D2F86E78F22F944160B6038C9E8DC747710349C2E55E6BC52D8745B749B39051BF72A0307B339257A48AECF
+    ```
 
-2. When there was no command initiated, the `cmd` parameter includes a `command code` and `challenge`:
+    2. When there was no command initiated, the `cmd` parameter includes a `command code` and `challenge`:
 
-- `command code`: 2 bytes (always: 8102).
-- `challenge`: 32 bytes (e.g. 00000009DC18…), which consists of:
-  - Big-endian UInt32: incremental counter, increases by 1 on each tap.
-  - Random 28 bytes: random number generated by the chip on each tap.
-  - Zero-padding: 1 byte (always: 00).
+    - `command code`: 2 bytes (always: 8102).
+    - `challenge`: 32 bytes (e.g. 00000009DC18…), which consists of:
+      - Big-endian UInt32: incremental counter, increases by 1 on each tap.
+      - Random 28 bytes: random number generated by the chip on each tap.
+      - Zero-padding: 1 byte (always: 00).
 
-**`cmd`**
+    **`cmd`**
 
-```
-8102 00000002F202C592C809428C2C763C3AB3A4BBF5475DD4567A45F8200E82C63D 00
-```
+    ```
+    8102 00000002F202C592C809428C2C763C3AB3A4BBF5475DD4567A45F8200E82C63D 00
+    ```
 
-3. Parse the `res` parameter includes [the ECDSA signature](../Halo/params#res-parameter):
+    3. Parse the `res` parameter includes [the ECDSA signature](../Halo/params#res-parameter):
 
-**`res`**
+    **`res`**
 
-```
-30450221009FB0D4E3F7BF343219E4A8779059412E3E1A2F26EAAE69B6246EA1AD118D3EE40220783DEBF12DF1D60DF6488543C8100937E9A596028B2D97D65279378713157CF1 0000000000
-```
+    ```
+    30450221009FB0D4E3F7BF343219E4A8779059412E3E1A2F26EAAE69B6246EA1AD118D3EE40220783DEBF12DF1D60DF6488543C8100937E9A596028B2D97D65279378713157CF1 0000000000
+    ```
 
-4. Verify the ECDSA signature against the publick key and challenge:
+    4. Verify the ECDSA signature against the public key and challenge:
 
-```js copy
-const EC = require('elliptic').ec;
-const ec = new EC('secp256k1');
+    ```js copy
+    const EC = require('elliptic').ec;
+    const ec = new EC('secp256k1');
 
-let pkey2 = "04BDC6288D344F129820317411D8A8283942DCDB4B2D2F86E78F22F944160B6038C9E8DC747710349C2E55E6BC52D8745B749B39051BF72A0307B339257A48AECF";
-let challenge = "00000002F202C592C809428C2C763C3AB3A4BBF5475DD4567A45F8200E82C63D";
-let signature = "30450221009FB0D4E3F7BF343219E4A8779059412E3E1A2F26EAAE69B6246EA1AD118D3EE40220783DEBF12DF1D60DF6488543C8100937E9A596028B2D97D65279378713157CF1";
+    let pkey2 = "04BDC6288D344F129820317411D8A8283942DCDB4B2D2F86E78F22F944160B6038C9E8DC747710349C2E55E6BC52D8745B749B39051BF72A0307B339257A48AECF";
+    let challenge = "00000002F202C592C809428C2C763C3AB3A4BBF5475DD4567A45F8200E82C63D";
+    let signature = "30450221009FB0D4E3F7BF343219E4A8779059412E3E1A2F26EAAE69B6246EA1AD118D3EE40220783DEBF12DF1D60DF6488543C8100937E9A596028B2D97D65279378713157CF1";
 
-let key = ec.keyFromPublic(pkey2.toString('hex'), 'hex');
-if (!key.verify(challenge, signature)) {
-    return {"error": "Unable to verify HaLo signature."};
-}
-```
+    let key = ec.keyFromPublic(pkey2.toString('hex'), 'hex');
+    if (!key.verify(challenge, signature)) {
+        return {"error": "Unable to verify HaLo signature."};
+    }
+    ```
 
-<Callout type="info">
-Note that unlike typical Ethereum messages, the random number is not `keccak256` hashed prior to being signed.
-</Callout>
+    <Callout type="info">
+    Note that unlike typical Ethereum messages, the random number is not `keccak256` hashed prior to being signed.
+    </Callout>
+
+  </Tab>
+  <Tab>
+
+    ## Verification Example
+
+    Using the URL below, we can verify the randomly generated challenge against the secondary public key of the HaLo:
+
+    <MulticolorString 
+      noWrap
+      href="https://eth.vrfy.ch/?v=c3&static=41046ACA3F246833017F8932A42518BBC0602E7B41FC4A03F02417B73685FF01AEAB8D653466D6FA2450A085C29BA31169F83A489DE46BC4CB0BB4F567DF7A66BE8E4104BDC6288D344F129820317411D8A8283942DCDB4B2D2F86E78F22F944160B6038C9E8DC747710349C2E55E6BC52D8745B749B39051BF72A0307B339257A48AECF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&latch1=0000000000000000000000000000000000000000000000000000000000000000&latch2=0000000000000000000000000000000000000000000000000000000000000000&cmd=810200000002F202C592C809428C2C763C3AB3A4BBF5475DD4567A45F8200E82C63D00&res=30450221009FB0D4E3F7BF343219E4A8779059412E3E1A2F26EAAE69B6246EA1AD118D3EE40220783DEBF12DF1D60DF6488543C8100937E9A596028B2D97D65279378713157CF10000000000"
+      parts={[
+        {text: "https://eth.vrfy.ch/?", color: "text"},
+        {text: "av", color: "green"},
+        {text: "=", color: "text"},
+        {text: "A02.01.000090.9BFF4326", color: "text"},
+        {text: "v", color: "green"},
+        {text: "=", color: "text"},
+        {text: "01.C5.000005.20F240F4", color: "text"},
+        {text: "&", color: "text"},
+        {text: "flags", color: "green"},
+        {text: "=", color: "text"},
+        {text: "&", color: "text"},
+        {text: "00", color: "text"},
+        {text: "pk1", color: "green"},
+        {text: "=", color: "text"},
+        {text: "04033595E8D03B49D05B7DE9D18151D02E93D8EB5C2AE2A93267FC3769C5C9BFDF4A98D2B814D6A09EF1971FAC11A2499702602C983A8B3533ACD20BF68F46CE6E", color: "text"},
+        {text: "&", color: "text"},
+        {text: "pk2", color: "green"},
+        {text: "=", color: "text"},
+        {text: "049D7CE3C00ED265E86360AC39F56205DBA6B00D5DB44553198E7C4B5FE5A1027C25D0046947F8B74758E48105CC363992955DA66208634582F0FA08D14114C474", color: "text"},
+        {text: "&", color: "text"},
+        {text: "rnd", color: "green"},
+        {text: "=", color: "text"},
+        {text: "000000051462917821839C1CE62D8C19CBB244A552271A5EFD9AAC0F0A1AA6CB", color: "text"},
+        {text: "&", color: "text"},
+        {text: "rndsig", color: "green"},
+        {text: "=", color: "text"},
+        {text: "3043021F78E4395B7928EC6B9B2C78666DB17C12C2D4F607D34207263E7AE8DB222B07022000EF5AFF61991710FC0A1F27573F10F20C581D97673C36EAA93D2299659AC7C7049D7C", color: "text"},
+        {text: "&", color: "text"},
+        {text: "cmd", color: "green"},
+        {text: "=", color: "text"},
+        {text: "0000", color: "text"},
+        {text: "&", color: "text"},
+        {text: "res", color: "green"},
+        {text: "=", color: "text"},
+        {text: "00", color: "text"},
+      ]}
+    />
+
+    1. Scan the HaLo chip and [parse the NDEF record](../HaLo/params). Locate the public key for key slot #2 or `pk2`.
+
+    **`pk2`**
+
+    ```
+    049D7CE3C00ED265E86360AC39F56205DBA6B00D5DB44553198E7C4B5FE5A1027C25D0046947F8B74758E48105CC363992955DA66208634582F0FA08D14114C474
+    ```
+
+    2. There are `rnd` and `rndsig` parameters in the URL, which are the random number and its signature:
+
+    - `rnd`: 32 bytes (e.g. 000000051462...), which consists of:
+      - Big-endian UInt32: incremental counter, increases by 1 on each tap (`5` in this case).
+      - Random 28 bytes: random number generated by the chip on each tap.
+    - `rndsig`: 64 bytes (e.g. 3045022100F...).
+      - The ECDSA signature of the random number and a prefix, `\x19Attest counter pk2:\n`.
+
+    **`rnd`**
+
+    ```
+    00000005 1462917821839C1CE62D8C19CBB244A552271A5EFD9AAC0F0A1AA6CB
+    ```
+
+    **`rndsig`**
+
+    ```
+    3043021F78E4395B7928EC6B9B2C78666DB17C12C2D4F607D34207263E7AE8DB222B07022000EF5AFF61991710FC0A1F27573F10F20C581D97673C36EAA93D2299659AC7C7049D7C
+    ```
+
+    3. Prepend the prefix and verify the ECDSA signature against the public key and challenge:
+
+    - Create a `sha256` hash of `\x19Attest counter pk2:\n` (hex encoded) concatenated with the `rnd` parameter.
+    - Verify the ECDSA signature against `pk2` and the hash.
+
+    <Callout type="info">
+    Note that unlike typical Ethereum messages that use `keccak256`, the `rnd` digest is `sha256` hashed with the `\x19Attest counter pk2:\n` prefix prior to being signed.
+    </Callout>
+
+    ```js copy
+    const EC = require('elliptic').ec;
+    const shajs = require('sha.js');
+    const ec = new EC('secp256k1');
+
+    let pk2 = "049D7CE3C00ED265E86360AC39F56205DBA6B00D5DB44553198E7C4B5FE5A1027C25D0046947F8B74758E48105CC363992955DA66208634582F0FA08D14114C474";
+    let rnd = "000000051462917821839C1CE62D8C19CBB244A552271A5EFD9AAC0F0A1AA6CB";
+    let rndsig = "3043021F78E4395B7928EC6B9B2C78666DB17C12C2D4F607D34207263E7AE8DB222B07022000EF5AFF61991710FC0A1F27573F10F20C581D97673C36EAA93D2299659AC7C7049D7C";
+
+    function verifyURLSig(pk2, rnd, rndsig) {
+        const rndBuf = Buffer.from(rnd, "hex");
+
+        if (rndBuf.length !== 32) {
+            throw new Error("Incorrect length of the rnd parameter or hex decoding failure.");
+        }
+
+        const msgHashed = shajs('sha256')
+            // static prefix: b'\x19Attest counter pk2:\n'.hex()
+            .update(Buffer.concat([
+                Buffer.from([0x19]),
+                Buffer.from("Attest counter pk2:\n", "utf8"),
+            ]))
+            .update(rndBuf)
+            .digest('hex');
+
+        const sigBuf = Buffer.from(rndsig, "hex");
+
+        if (sigBuf.length < 2 || 2 + sigBuf[1] > sigBuf.length) {
+            throw new Error("Malformed signature in the rndsig field.");
+        }
+
+        const cutSig = sigBuf.subarray(0, 2 + sigBuf[1]).toString("hex");
+        let key = null;
+
+        try {
+            key = ec.keyFromPublic(pk2, 'hex');
+        } catch (e) {
+            throw new Error("Unable to decode public key.");
+        }
+
+        const pk2Exported = key.getPublic(/* compact: */ false, 'hex');
+
+        if (key.verify(msgHashed, cutSig)) {
+            const counter = rndBuf.readUInt32BE(0);
+
+            return {
+                // always returns uncompressed public key
+                "publicKey2": pk2Exported,
+                // the scan counter that was validated
+                "scanCounter": counter
+            };
+        } else {
+            throw new Error("Failed to verify signature!");
+        }
+    }
+
+    try {
+        const validationResult = verifyURLSig(pk2, rnd, rndsig);
+        console.log('The URL is correctly signed with:');
+        console.log(validationResult);
+    } catch (e) {
+        console.error('Failed to validate the URL\'s signature.');
+    }
+    ```
+
+    The expected response for a successful verification is:
+
+    ```
+    The URL is correctly signed with:
+    {
+      publicKey2: '049d7ce3c00ed265e86360ac39f56205dba6b00d5db44553198e7c4b5fe5a1027c25d0046947f8b74758e48105cc363992955da66208634582f0fa08d14114c474',
+      scanCounter: 5
+    }
+    ```
+
+  </Tab>
+</Tabs>

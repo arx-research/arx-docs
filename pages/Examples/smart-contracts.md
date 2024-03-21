@@ -15,3 +15,24 @@ Using HaLos as wallets directly via EIP-712 signatures and an ERC-2771 relay con
 - [Cattestation](https://ethglobal.com/showcase/cattestation-2st8u) 
 
 A demonstration of HaLo chips generating [EAS-comptabile](https://attest.sh/) signatures using the `signTypedData` option in LibHaLo. The signature can then be presented to the Cattestation contract to mint an NFT.
+
+### Verifying Messages in Smart Contracts
+
+Note that depending on the way in which you verify EIP-191 messages in your contract -- for instance by using the OpenZeppelin ECDSA library -- you may see different recovery addresses as compared to libraries like ethersjs. This is typically due to ambiguous typing of the message. In the case of ethersjs, there is ambiguity with respect to the `type` of a message as compared to what is expected by `ECDSA.sol` by OpenZeppelin.
+
+When preparing a message, we recommend using `solidityPack` and `arrayify` to the string you are signing and verifying. Likewise, in order to correctly verify the message using ethersjs' `verifyMessage`, first `arrayify` the string that was signed in order to recover the expected address.
+
+#### Example
+
+```js copy
+// Signing
+
+const signer = ethers.Wallet.createRandom() // See https://github.com/arx-research/halo-wallet for using a HaLo as an ethersjs "signer"
+const packedMessage = ethers.utils.solidityPack(["string"], ["hello"]);
+const signature = await signer.signMessage(ethers.utils.arrayify(packedMessage));
+
+// Verifying
+const recoveredAddress = ethers.utils.verifyMessage(ethers.utils.arrayify(packedMessage), signature)
+
+// recoveredAddress should match signer.address
+```

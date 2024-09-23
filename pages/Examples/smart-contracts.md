@@ -26,7 +26,6 @@ When preparing a message, we recommend using `solidityPack` and `arrayify` to th
 
 ```js copy
 // Signing
-
 const signer = ethers.Wallet.createRandom() // See https://github.com/arx-research/halo-wallet for using a HaLo as an ethersjs "signer"
 const packedMessage = ethers.utils.solidityPack(["string"], ["hello"]);
 const signature = await signer.signMessage(ethers.utils.arrayify(packedMessage));

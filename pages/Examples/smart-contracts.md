@@ -4,7 +4,7 @@ As secp256k1 ECDSA signers, HaLo signatures can easily be verified in smart cont
 
 ## Ethereum
 
-- [Chiru Labs Simple PBT Example](https://github.com/chiru-labs/PBT/blob/main/src/PBTSimple.sol) 
+- [Chiru Labs Simple PBT Example](https://github.com/chiru-labs/PBT/blob/main/src/v2/PBTSimple.sol) 
 
 An EIP-191 compatible signature from a HaLo chip is used to claim ownership of a PBT or "physically-backed token". The PBT example does not currently integrate LibHaLo for capturing signatures, which we would recommend as LibHaLo will can directly produce EIP-191 prefixed signatures.
 

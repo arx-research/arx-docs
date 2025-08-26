@@ -8,9 +8,12 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 The HaLo URL NDEF record contains information about the chip's unique public keys as well as information about the last issued command and last returned response for that command. There is a proprietary interface allowing the user to issue arbitrary commands against the chip using the NDEF layer.
 
 <Callout type="info">
-Significant parameter changes occured with verison `c5`.
+Significant parameter changes occurred with version `c5`.
 </Callout>
 
+## Redirecting a HaLo to a new URL
+
+Currently all HaLos are fixed to the `https://eth.vrfy.ch/` URL. This URL follows the redirects from the onchain Ethereum Reality Service ("ERS") registry. See [ERS](../ERS/overview) for more information on how to register a HaLo chip with the ERS registry to redirect it to a desired URL. All parameters in the URL are included on redirect.
 
 <Tabs items={['Versions c1-c4', 'Version c5+']} defaultIndex="1">
   <Tab>
@@ -153,7 +156,7 @@ Significant parameter changes occured with verison `c5`.
 
   Version `c5` introducted dynamically generated URLs which means that some elements may be hidden on initial scan. It is possible to enable and disable these additional parameters depending on the application. 
 
-  In the example shown here, the `pk3` has not been initialized, `latch1` has not bee set, and `latch2` has been set. 
+  In the example shown here, the `pk3` has not been initialized, `latch1` has not been set, and `latch2` has been set. 
 
   {/* <LongUrl href="https://eth.vrfy.ch/?av=A02.01.000090.9BFF4326&v=01.C5.000005.20F240F4&flags=00&pk1=0428C896E83F6B51C838ADD8C537BD1F2CD45AB152B75436C2BCFBFEAE2905C09D8F03F3071E609CFCE6B3A5E1397484B5EFE2F054C1093F05825999442E8688FE&pk2=040523464ACA95D50C5945A40FF62F36E2227A9123AFBED627ED3E11207B593C24FFC78E17B28039F30E572B90C4496AB42AA12755092270FEBCCA2BA7DF0139FF&latch2=0101010101010101010101010101010101010101010101010101010101010101&rnd=000000507A27899EC02BF491F5B469D48CC45BE4C045E206903E3865BA96D382&rndsig=304502202FB534B05B6B36B5DCB73D180BF3BC001F1EC06D8B9DC7DAC3036C910B2A5BFF022100C89E36BA52647F3AC89175A6D3D7436F550FB02977DF89E4D0DDA27F11FAC66E04&cmd=0101&res=304402201A2093A9440620536C0F929B608D775948397BB6EAB0605A685B8130C7A407AC02202326F45A3F8566B5F1D3D083E80B76C5A1AA0A9036E3772197D92F60994B80B4" /> */}
 

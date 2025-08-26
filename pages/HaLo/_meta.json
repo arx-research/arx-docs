@@ -1,7 +1,8 @@
 {
     "overview": "Overview",
+    "libhalo": "Using libHaLo",
     "params": "NDEF Record Structure",
-    "command": "Sending a Command",
+    "command": "Manually sending a Command",
     "non-interactive": "Non-Interactive Mode",    
     "specifications": "Specifications",
     "integration": "Chip Integration"

@@ -1,0 +1,10 @@
+# Overview
+
+[Burner](https://www.burner.pro/) is a product offered by Arx that is built on top of HaLo technology. It is a full hardware wallet that can store tokens and sign messages. Burner is typically accessed by users via a browser web app called BurnerOS. BurnerOS leverages libHaLo at a low level to interact with Burner cards. 
+
+BurnerOS also uses [libBurner](https://github.com/arx-research/libburner), a higher level library that provides "wallet like" functionality, such as managing expected Burner key slots, signing messages that conform to EIP-712 and EIP-191 specifications and integrating with libraries like [viem](https://viem.sh/) as a wallet provider.
+
+You can interface with Burners using either libHaLo or libBurner, depending on your needs. If you want to interact with the low-level features of the Burner card, such as reading and writing data, you can use libHaLo. If you want to use the higher-level wallet functionality, such as signing messages and managing keys, we recommend libBurner.
+
+- See the [Burner help docs](https://help.burner.pro/en) for more information on how Burners work.
+- For custom Burner cards, see [Burner Partnerships](https://www.burner.pro/partnerships) for more information.
